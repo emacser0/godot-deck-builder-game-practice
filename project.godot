@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DeckBuilderGamePractice"
-run/main_scene="res://scenes/battle.tscn"
+run/main_scene="res://scenes/battle/battle.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
 
@@ -27,6 +27,11 @@ window/stretch/mode="viewport"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[layer_names]
+
+2d_physics/layer_1="card_target_selector"
+2d_physics/layer_2="card_drop_area"
 
 [rendering]
 
