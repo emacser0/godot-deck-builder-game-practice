@@ -27,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.101961, 0.282353, 0.176471, 1)
 
 [node name="State" type="Label" parent="."]
@@ -40,11 +41,11 @@ text = "state"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DropPointSelector" type="Area2D" parent="."]
+[node name="DropPointDetector" type="Area2D" parent="."]
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointSelector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
 position = Vector2(12.5213, 15)
 scale = Vector2(1.19574, 1.36519)
 shape = SubResource("RectangleShape2D_k3h73")
@@ -67,3 +68,9 @@ state = 2
 [node name="CardReleasedState" type="Node2D" parent="CardStateMachine"]
 script = ExtResource("7_kqdlp")
 state = 4
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropPointDetector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="DropPointDetector" to="." method="_on_drop_point_detector_area_exited"]
